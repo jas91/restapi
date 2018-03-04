@@ -1,0 +1,16 @@
+version: '2'
+services:
+  db:
+    image: mongo:latest
+    container_name: mongoserver
+    networks:
+      - network
+  restapi:
+    build: ./.
+    networks:
+      - network
+    ports:
+     - "8080"
+networks:
+  network:
+    driver: bridge
